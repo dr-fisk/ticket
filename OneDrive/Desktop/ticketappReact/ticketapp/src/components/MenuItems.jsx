@@ -1,7 +1,7 @@
 export const MenuItems = [
     {
         title: 'Dashboard',
-        url: '/dashboard',
+        url: '/ticket',
         class: 'nav-links'
     },
     {

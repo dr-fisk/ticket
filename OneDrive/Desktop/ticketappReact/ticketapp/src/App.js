@@ -16,10 +16,10 @@ class App extends Component {
     return(
       <Router>
         <div>
-          <Route exact path='/ticket'>
-            <Redirect to='/dashboard' />
+          <Route exact path='/'>
+            <Redirect to='/ticket' />
           </Route>
-          <Route path='/dashboard' component={() => 
+          <Route path='/ticket' component={() => 
             <Home requests={this.state.requests} />
           } />
           <Route path='/addticket' component={() =>
