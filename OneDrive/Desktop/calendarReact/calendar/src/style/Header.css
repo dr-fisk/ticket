@@ -1,0 +1,27 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.vertical-menu {
+    width: 150px;
+    height: 100%;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: 0;
+    background-color: black;
+}
+
+.vertical-menu a {
+    color: white;
+    display: block;
+    height: 30px;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.vertical-menu a:hover {
+    background-color: rgb(46, 45, 45);
+}

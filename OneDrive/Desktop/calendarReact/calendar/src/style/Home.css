@@ -1,0 +1,17 @@
+.main-row {
+    width: 99.9%;
+    display: flex;
+}
+
+.main-row .req-table {
+    float: left;
+    width: 100%;
+    margin-right: 20px;
+    margin-left: 170px;
+}
+
+.main-row .calendar {
+    float: left;
+    width: 200px;
+}
+

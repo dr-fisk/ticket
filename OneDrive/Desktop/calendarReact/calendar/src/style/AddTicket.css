@@ -1,0 +1,19 @@
+.ticket-submit {
+    margin-left: 170px;
+    padding: 0px 5px;
+    background-color: rgb(58, 57, 57);
+    color: white;
+    width: 450px;
+}
+
+.ticket-submit input[type=text]{
+    width: 98%;
+}
+
+.ticket-submit input[type=submit] {
+    width: 100%;
+}
+
+.testingthis {
+    margin-left: 1000px;
+}
