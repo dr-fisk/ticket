@@ -16,7 +16,7 @@ class App extends Component {
     return(
       <Router>
         <div>
-          <Route exact path='/ticketapp'>
+          <Route exact path='/ticket'>
             <Redirect to='/dashboard' />
           </Route>
           <Route path='/dashboard' component={() => 
