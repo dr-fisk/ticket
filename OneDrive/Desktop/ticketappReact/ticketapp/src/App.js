@@ -9,18 +9,14 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      requests:  [
-      {Issue: 'Testing', Date: 'Testing2', User: 'Testing3', Priority: 'Testing4'},
-      {Issue: 'Testing5', Date: 'Testing6', User: 'Testing7', Priority: 'Testing8'},
-      {Issue: 'Testing9', Date: 'Testing10', User: 'Testing11', Priority: 'Testing12'}
-      ]
+      requests:  []
     }
   }
   render() {
     return(
       <Router>
         <div>
-          <Route exact path='/'>
+          <Route exact path='/ticketapp'>
             <Redirect to='/dashboard' />
           </Route>
           <Route path='/dashboard' component={() => 
