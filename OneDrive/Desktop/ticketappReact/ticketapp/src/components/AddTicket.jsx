@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom';
 import Header from './Header'
 import '../style/AddTicket.css'
 
@@ -12,6 +12,7 @@ class AddTicket extends Component {
             date: date,
             user: null,
             priority: null,
+            validForm: 1
         }
     }
     render() {
@@ -20,10 +21,7 @@ class AddTicket extends Component {
                 <Header />
                 <div className='ticket-submit'>
                   <form id='ticket' onSubmit={this.addTicket}>
-                      Issue: <br /><input type='text' name='issue' onChange={this.inputChange} placeholder='Enter your issue' /><br />
-                      User: <br /><input type='text' name='user' onChange={this.inputChange} placeholder='Enter your name/username' /><br />
-                      Priority: <br /><input type='text' name='priority' onChange={this.inputChange} placeholder='Enter priority level' /><br />
-                      <br /><input type='submit' value='Submit'></input>
+                      {this.renderForm()}
                   </form>
                 </div>
             </React.Fragment>
@@ -50,10 +48,36 @@ class AddTicket extends Component {
             }
         
          this.props.requests.push(newTicket);
-         return 0;
+         this.setState({validForm: 1});
         }
 
-        return <br></br>;
+        this.setState({validForm: 0})
+    }
+
+    renderForm() {
+        var issueForm = (this.state.validForm === 0 && this.state.issue === null) 
+                        ? <b key='issue'>Issue:<div className='error'>Please enter issue</div></b> : <b key='issue'>Issue:</b>;
+        
+        var userForm = (this.state.validForm === 0 && this.state.user === null) 
+                        ? <b key='user'>User:<div className='error'>Please enter user input</div></b> : <b key='user'>User:</b>;
+        
+        var priorityForm = (this.state.validForm === 0 && this.state.priority === null) 
+                        ? <b key='priority'>Priority:<div className='error'>Please enter priority (0-5)</div></b> : <b key='priority'>Priority:</b>;
+
+
+        var ticketForm = [
+            issueForm,
+            <input type='text' name='issue' key='issue-form' onChange={this.inputChange} placeholder='Enter your issue'></input>,
+            userForm,
+            <input type='text' name='user' key='user-form' onChange={this.inputChange} placeholder='Enter your name/username' />,
+            priorityForm,
+            <input type='text' name='priority' key='priority-form' onChange={this.inputChange} placeholder='Enter priority level' />,
+            <br key='newline1' />,
+            <br key='newline2' />,
+            <input type='submit' value='Submit' key='submit-button'></input>
+        ] 
+
+        return ticketForm;
     }
 }
 
