@@ -7,8 +7,14 @@ class Request extends Component{
         super(props);
         this.state = {
             tableHeader: ['Issue', 'Date', 'User', 'Priority'],
-            requests: props.requests
+            requests: [],
+            page : 1
         }
+    }
+
+    componentDidMount() {
+      // Uncomment when requests are designed nicely
+      //this.splitRequestsToPages();
     }
 
     render () {
@@ -30,6 +36,17 @@ class Request extends Component{
               </tbody>
             </table>
         );
+    }
+
+    // Displays 10 items a page within the requests list
+    splitRequestsToPages () {
+      var reqs = [];
+
+      for (var i = (10 * (this.state.page - 1)); i < (10 * this.state.page) && this.props.requests[i]; i ++)
+        reqs.push(this.props.requests[i]);
+        
+      //console.log(reqs);
+      this.setState({requests: reqs})
     }
 }
 

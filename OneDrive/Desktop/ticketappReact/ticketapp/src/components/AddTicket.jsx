@@ -12,11 +12,12 @@ class AddTicket extends Component {
             date: date,
             user: null,
             priority: null,
-            validForm: 1
+            validForm: null
         }
     }
+    
     render() {
-        return (
+        return this.state.validForm ? <Redirect to='/ticket' /> : (
             <React.Fragment>
                 <Header />
                 <div className='ticket-submit'>
@@ -49,9 +50,8 @@ class AddTicket extends Component {
         
          this.props.requests.push(newTicket);
          this.setState({validForm: 1});
-        }
-
-        this.setState({validForm: 0})
+        } else
+            this.setState({validForm: 0})
     }
 
     renderForm() {
@@ -59,7 +59,7 @@ class AddTicket extends Component {
                         ? <b key='issue'>Issue:<div className='error'>Please enter issue</div></b> : <b key='issue'>Issue:</b>;
         
         var userForm = (this.state.validForm === 0 && this.state.user === null) 
-                        ? <b key='user'>User:<div className='error'>Please enter user input</div></b> : <b key='user'>User:</b>;
+                        ? <b key='user'>User:<div className='error'>Please enter user</div></b> : <b key='user'>User:</b>;
         
         var priorityForm = (this.state.validForm === 0 && this.state.priority === null) 
                         ? <b key='priority'>Priority:<div className='error'>Please enter priority (0-5)</div></b> : <b key='priority'>Priority:</b>;
