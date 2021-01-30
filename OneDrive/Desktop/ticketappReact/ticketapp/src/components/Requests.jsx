@@ -7,7 +7,7 @@ class Request extends Component{
         super(props);
         this.state = {
             tableHeader: ['Issue', 'Date', 'User', 'Priority'],
-            requests: [],
+            requests: this.props.requests,
             page : 1
         }
     }
