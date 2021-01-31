@@ -26,4 +26,7 @@ Another feature I want to add is when I click on the day on the calendar in dash
 on that day, or requests due on that day perhaps.<br />
 There also is a check planned for the add ticket page, as of now you can submit an empty request which is not desirable.<br />
 Also I plan to update the about page with probably how to use the app, my info, and maybe projects I've worked on?<br />
-This is what is planned so far.
+
+# Table sorting WIP
+Currently the page buttons when you begin to add tickets don't have a function. This will come soon. These pages
+will allow a user to scroll through the list of tickets by factors of 10.
